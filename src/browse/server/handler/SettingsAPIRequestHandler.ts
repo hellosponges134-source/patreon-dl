@@ -14,20 +14,20 @@ export default class SettingsAPIRequestHandler extends Basehandler {
     this.#api = api;
   }
 
-  handleGetBrowseSettingsRequest(_req: Request, res: Response) {
+  handleGetBrowseSettingsRequest(_req: , res: Response) {
     res.json(this.#api.getBrowseSettings());
   }
 
-  handleBrowseSettingOptionsRequest(_req: Request, res: Response) {
+  handleBrowseSettingOptionsRequest(_req: , res: Response) {
     res.json(this.#api.getBrowseSettingOptions());
   }
 
-  handleSaveBrowseSettingsRequest(req: Request, res: Response) {
+  handleSaveBrowseSettingsRequest(req: Rt, res: Response) {
     this.#api.saveBrowseSettings(this.#retrieveBrowseSettings(req));
     res.sendStatus(200);
   }
 
-  #retrieveBrowseSettings(req: Request) {
+  #retrieveBrowseSettings(req: ) {
     const body = req.body;
     if (this.#isBrowseSettings(body)) {
       return body;
